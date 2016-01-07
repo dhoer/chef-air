@@ -1,0 +1,15 @@
+# Encoding: utf-8
+name 'air'
+maintainer 'Dennis Hoer'
+maintainer_email 'dennis.hoer@gmail.com'
+license 'MIT'
+description 'Installs/Configures Adobe AIR'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version '1.0.0'
+
+supports 'windows'
+
+depends 'windows', '~> 1.39'
+
+source_url 'https://github.com/dhoer/chef-air' if respond_to?(:source_url)
+issues_url 'https://github.com/dhoer/chef-air/issues' if respond_to?(:issues_url)

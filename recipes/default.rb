@@ -41,13 +41,8 @@ if platform?('windows')
     recursive true
   end
 
-  disable_file = "#{ENV['APPDATA']}\\Adobe\\AIR\\updateDisabled"
-  if node['air']['update_disabled']
-    file disable_file
-  else
-    file disable_file do
-      action :delete
-    end
+  file "#{ENV['APPDATA']}\\Adobe\\AIR\\updateDisabled" do
+    action node['air']['update_disabled'] ? :create : :delete
   end
 else
   Chef::Log.warn("Platform #{node['platform']} not supported!")

@@ -21,4 +21,12 @@ when 'windows'
   describe file('C:\air\sample_apps\Bee\Bee.exe') do
     it { should be_file }
   end
+
+  describe windows_registry_key('HKLM\SOFTWARE\Policies\Adobe\AIR') do
+    it { should have_property_value('UpdateDisabled', :type_dword, '1') }
+  end
+
+  describe file('C:\Users\vagrant\AppData\Roaming\Adobe\AIR\updateDisabled') do
+    it { should be_file }
+  end
 end

@@ -5,7 +5,7 @@ require_relative 'spec_helper'
 describe 'air::default' do
   before do
     ENV['SystemDrive'] = 'C:'
-    ENV['APPDATA'] = 'C:\Users\vagrant\AppData'
+    ENV['APPDATA'] = 'C:\Users\vagrant\AppData\Roaming'
   end
 
   context 'windows' do
@@ -33,7 +33,7 @@ describe 'air::default' do
       end
 
       it 'creates update disable file' do
-        expect(chef_run).to create_file('C:\Users\vagrant\AppData\Adobe\AIR\updateDisabled')
+        expect(chef_run).to create_file('C:\Users\vagrant\AppData\Roaming\Adobe\AIR\updateDisabled')
       end
     end
 
